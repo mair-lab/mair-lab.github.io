@@ -7,6 +7,7 @@ baseurl:     ""
 url:         "https://mair-lab.github.io"
 date_format: "%b %-d, %Y"
 header_pages:
+ - index.html
  - people.md
  - research.md
  - publications.md

@@ -1,26 +1,72 @@
 // _people.scss
 
-body .post-content {
-    .profile-image {
-        float: left;
-        margin-right: 1.5rem;
-        margin-bottom: 1rem;
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 4px;
-        max-width: 100%;
+.profile-image {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 4px;
+    max-width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+#phd-students,
+#msc-students {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    padding: 1rem 0;
+}
+
+.phd-student,
+.msc-student {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.phd-student:hover,
+.msc-student:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.phd-student .profile-image,
+.msc-student .profile-image {
+    margin-bottom: 0.25rem;
+}
+
+.phd-student p,
+.msc-student p {
+    margin: 0;
+    line-height: 1.2;
+    font-size: 0.85em;
+}
+
+.phd-student strong,
+.msc-student strong {
+    color: #333;
+    font-size: 0.95em;
+    display: block;
+    margin: 0.15rem 0;
+}
+
+@media (max-width: 1200px) {
+    #phd-students,
+    #msc-students {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    body .post-content .people-page {
-        .profile-image {
-            float: none;
-            display: block;
-            margin: 0 auto 1rem;
-            width: 150px;
-            height: 150px;
-        }
+    #phd-students,
+    #msc-students {
+        grid-template-columns: minmax(0, 1fr);
     }
 }

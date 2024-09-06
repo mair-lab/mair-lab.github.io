@@ -13,6 +13,6 @@ research_interests:
   - Vision-Language Understanding
 email: aishwarya.agrawal@mila.quebec
 google_scholar: https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID
-personal_website: https://www.cs.ubc.ca/~aishagrawal/
+personal_website: https://www.iro.umontreal.ca/~agrawal/
 image: /images/aishwarya_agrawal.jpeg
 ---
