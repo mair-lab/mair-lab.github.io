@@ -5,9 +5,55 @@ permalink: /research/
 tags: research
 ---
 
-# Research
+<style>
+.talks-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.talk {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.talk-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+}
+.talk-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.talk-info {
+  padding: 10px;
+}
+.talk-title {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.talk-venue {
+  font-size: 0.8em;
+  color: #666;
+}
+.talk-links {
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+.talk-links a {
+  color: #0066cc;
+  text-decoration: none;
+  margin-right: 10px;
+}
+</style>
 
-My research interests lie at the intersection of Computer Vision, Deep Learning, and Natural Language Processing, with a focus on developing Artificial Intelligence (AI) systems that can 'see' (i.e., understand the contents of an image: who, what, where, doing what?) and 'talk' (i.e., communicate the understanding to humans in free-form natural language).
+Our research interests lie at the intersection of Computer Vision, Deep Learning, and Natural Language Processing, with a focus on developing Artificial Intelligence (AI) systems that can 'see' (i.e., understand the contents of an image: who, what, where, doing what?) and 'talk' (i.e., communicate the understanding to humans in free-form natural language).
 
 ## Research Topics
 
@@ -23,23 +69,22 @@ For more details, please check out my [latest talks](#recent-talks).
 
 ## Recent Talks
 
-- "Advancing multimodal vision-language learning"
-  - Area Chair Workshop @ CVPR (June, 2024). [[slides]](#)
-  - Understanding LLM Understanding Summer School (June, 2024). [[slides]](#) [[Watch]](#)
-  - CIFAR AICan Retreat (June, 2024). [[slides]](#)
-  - World Summit AI Americas (April, 2023). [[slides]](#) [[Watch]](#)
-  - Text in Everything workshop @ ECCV (Oct, 2022). [[slides]](#)
-  - Tea Talks @ Mila (Sep, 2022). [[slides]](#) [[Watch]](#)
-
-- "Visual-Language Learning"
-  - Tutorial on Visual Recognition Beyond the Comfort Zone: Adapting to Unseen Concepts on the Fly @ ICCV (Oct, 2023). [[Watch]](#)
-
-- "Are current Vision-language models learning to solve the task or merely learning to solve the dataset"
-  - Tea Talks @ Mila (Feb, 2022). [[slides]](#) [[Watch]](#)
-
-- "Vision and Language: Progress and Challenges"
-  - Research Week with Google (India) (Feb, 2022). [[slides]](#)
-  - Montreal AI Symposium (October, 2021). [[Watch]](#)
-  - Microsoft Research, Montreal (September, 2021). [[slides]](#)
-
-For a complete list of talks and videos, please visit our [Videos and Talks page](videos-and-talks.md).
+<div class="talks-section">
+{% for talk in site.data.talks %}
+  <div class="talk">
+    <div class="talk-video">
+      {% assign video_id = talk.video_url | split: "v=" | last | split: "&" | first %}
+      <iframe src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="talk-info">
+      <div class="talk-title">{{ talk.title }}</div>
+      <div class="talk-venue">{{ talk.venue }} ({{ talk.date | date: "%b %Y" }})</div>
+      <div class="talk-links">
+        {% if talk.slides_url and talk.slides_url != "#" %}
+          <a href="{{ talk.slides_url }}">Slides</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>

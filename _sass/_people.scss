@@ -13,47 +13,73 @@ $border-color: #e0e0e0;
 }
 
 // Faculty section
+#faculty-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1.5rem;
+}
+
 .faculty-member {
     display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-    padding: 0.75rem;
     background-color: $background-color;
     border-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    align-items: center; // Center items vertically
+}
 
+.faculty-image {
+    flex: 0 0 22%; // Reduced from 28% to make it smaller
+    padding: 8px; // Slightly reduced padding
+    
     .profile-image {
-        width: 180px;  // Reduced from 250px
-        height: 180px; // Reduced from 250px
-        margin-right: 1.25rem; // Slightly reduced margin
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 4px;
     }
+}
+
+.faculty-info {
+    flex: 1;
+    padding: 1rem;
 
     h3 {
         color: $primary-color;
-        margin: 0 0 0.25rem;
+        margin: 0 0 0.5rem;
         font-size: 1.2em;
     }
 
-    p, ul {
-        margin: 0.15rem 0;
+    p {
+        margin: 0.25rem 0;
         font-size: 0.9em;
         line-height: 1.4;
     }
 
-    ul {
-        list-style-type: none;
-        padding-left: 0;
+    .position, .department, .university {
+        font-weight: bold;
     }
 
-    a {
-        color: $primary-color;
-        text-decoration: none;
-        margin-right: 0.5rem;
-        font-size: 0.9em;
+    .affiliations {
+        font-style: italic;
+    }
 
-        &:hover {
-            text-decoration: underline;
+    .research-interests {
+        margin-top: 0.5rem;
+    }
+
+    .faculty-links {
+        margin-top: 0.5rem;
+
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            font-size: 1em;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
 }
@@ -73,11 +99,30 @@ $border-color: #e0e0e0;
         margin-bottom: 0.4rem;
     }
 
-    strong {
+    .student-name {
         color: $primary-color;
-        display: block;
+        font-weight: bold;
         margin-bottom: 0.1rem;
         font-size: 0.9em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; // Changed from space-between to flex-start
+
+        .student-links {
+            display: flex;
+            gap: 0.3rem;
+            margin-left: 0.5rem; // Add some space between name and icons
+
+            a {
+                color: $primary-color;
+                text-decoration: none;
+                font-size: 0.8em;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
     }
 
     p {
@@ -85,32 +130,19 @@ $border-color: #e0e0e0;
         font-size: 0.75em;
         line-height: 1.2;
     }
-
-    a {
-        color: $primary-color;
-        text-decoration: none;
-        margin: 0 0.05rem;
-        font-size: 0.75em;
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
 }
 
 // Responsive design
 @media (max-width: 768px) {
     .faculty-member {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+    }
 
-        .profile-image {
-            margin-right: 0;
-            margin-bottom: 1rem;
-            width: 160px;  // Slightly reduced for mobile
-            height: 160px; // Slightly reduced for mobile
-        }
+    .faculty-image {
+        flex: 0 0 auto;
+        width: 60%; // Reduced from 70% to make it smaller on mobile
+        max-width: 200px; // Reduced maximum width
+        margin: 1rem auto; // Center the image
     }
 
     #phd-students,

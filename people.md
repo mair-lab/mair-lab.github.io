@@ -5,34 +5,32 @@ permalink: /people/
 tags: people
 ---
 
-# Our Team
-
 ## Faculty
 
-<div id="faculty-members" markdown="1">
+<div id="faculty-members">
 {% for person in site.people %}
 {% if person.position contains "Professor" %}
-<div class="faculty-card" markdown="1">
-
-{% if person.image %}
-![{{ person.name }}]({{ site.baseurl }}{{ person.image }}){: .profile-image}
-{% endif %}
-
-**{{ person.name }}**  
-{{ person.position }}  
-{{ person.department }}  
-{{ person.university }}
-
-{% for affiliation in person.affiliations %}
-{{ affiliation }}
-{% endfor %}
-
-**Research interests:** {{ person.research_interests | join: ", " }}
-
-[<i class="fas fa-envelope"></i>](mailto:{{ person.email }} "Email") 
-[<i class="ai ai-google-scholar"></i>]({{ person.google_scholar }} "Google Scholar")
-[<i class="fas fa-globe"></i>]({{ person.personal_website }} "Personal Website")
-
+<div class="faculty-member">
+  <div class="faculty-image">
+    {% if person.image %}
+    <img src="{{ site.baseurl }}{{ person.image }}" alt="{{ person.name }}" class="profile-image">
+    {% endif %}
+  </div>
+  <div class="faculty-info">
+    <h3>{{ person.name }}</h3>
+    <p class="position">{{ person.position }}</p>
+    <p class="department">{{ person.department }}</p>
+    <p class="university">{{ person.university }}</p>
+    {% for affiliation in person.affiliations %}
+    <p class="affiliations">{{ affiliation }}</p>
+    {% endfor %}
+    <p class="research-interests"><strong>Research interests:</strong> {{ person.research_interests | join: ", " }}</p>
+    <div class="faculty-links">
+      <a href="mailto:{{ person.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="{{ person.google_scholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+      <a href="{{ person.personal_website }}" title="Personal Website"><i class="fas fa-globe"></i></a>
+    </div>
+  </div>
 </div>
 {% endif %}
 {% endfor %}
@@ -40,75 +38,71 @@ tags: people
 
 ## PhD Students
 
-<div id="phd-students" markdown="1">
-
+<div id="phd-students">
 {% for person in site.people %}
 {% if person.position contains "PhD" %}
-<div class="phd-student" markdown="1">
-
-{% if person.image %}
-![{{ person.name }}]({{ site.baseurl }}{{ person.image }}){: .profile-image}
-{% endif %}
-
-**{{ person.name }}**  
-{{ person.position }} ({{ person.start_date }})  
-{{ person.research_focus | join: ", " }}  
-[<i class="fas fa-envelope"></i>](mailto:{{ person.email }} "Email") {% if person.google_scholar %}[<i class="ai ai-google-scholar"></i>]({{ person.google_scholar }} "Google Scholar"){% endif %}
-
+<div class="phd-student">
+    {% if person.image %}
+    <img src="{{ site.baseurl }}{{ person.image }}" alt="{{ person.name }}" class="profile-image">
+    {% endif %}
+    <div class="student-name">
+        {{ person.name }}
+        <span class="student-links">
+            <a href="mailto:{{ person.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+            {% if person.google_scholar %}<a href="{{ person.google_scholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+        </span>
+    </div>
+    <p>{{ person.position }} ({{ person.start_date }})</p>
+    <p>{{ person.research_focus | join: ", " }}</p>
 </div>
 {% endif %}
 {% endfor %}
-
 </div>
 
 ## MSc Students
 
-<div id="msc-students" markdown="1">
-
+<div id="msc-students">
 {% for person in site.people %}
 {% if person.position contains "MSc" %}
-<div class="msc-student" markdown="1">
-
-{% if person.image %}
-![{{ person.name }}]({{ site.baseurl }}{{ person.image }}){: .profile-image}
-{% endif %}
-
-**{{ person.name }}**  
-{{ person.position }} ({{ person.start_date }})  
-{% if person.research_focus %}
-{{ person.research_focus | join: ", " }}  
-{% endif %}
-[<i class="fas fa-envelope"></i>](mailto:{{ person.email }} "Email") {% if person.google_scholar %}[<i class="ai ai-google-scholar"></i>]({{ person.google_scholar }} "Google Scholar"){% endif %}
-
+<div class="msc-student">
+    {% if person.image %}
+    <img src="{{ site.baseurl }}{{ person.image }}" alt="{{ person.name }}" class="profile-image">
+    {% endif %}
+    <div class="student-name">
+        {{ person.name }}
+        <span class="student-links">
+            <a href="mailto:{{ person.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+            {% if person.google_scholar %}<a href="{{ person.google_scholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+        </span>
+    </div>
+    <p>{{ person.position }} ({{ person.start_date }})</p>
+    {% if person.research_focus %}<p>{{ person.research_focus | join: ", " }}</p>{% endif %}
 </div>
 {% endif %}
 {% endfor %}
-
 </div>
 
 ## Visiting Students / Interns
 
-<div id="visiting-students" markdown="1">
-
+<div id="visiting-students">
 {% for person in site.people %}
 {% if person.position contains "Visiting" %}
-<div class="visiting-student" markdown="1">
-
-{% if person.image %}
-![{{ person.name }}]({{ site.baseurl }}{{ person.image }}){: .profile-image}
-{% endif %}
-
-**{{ person.name }}**  
-{{ person.position }} ({{ person.start_date }})  
-{% if person.research_focus %}
-{{ person.research_focus | join: ", " }}  
-{% endif %}
-[<i class="fas fa-envelope"></i>](mailto:{{ person.email }} "Email") {% if person.google_scholar %}[<i class="ai ai-google-scholar"></i>]({{ person.google_scholar }} "Google Scholar"){% endif %}
-
+<div class="visiting-student">
+    {% if person.image %}
+    <img src="{{ site.baseurl }}{{ person.image }}" alt="{{ person.name }}" class="profile-image">
+    {% endif %}
+    <div class="student-name">
+        {{ person.name }}
+        <span class="student-links">
+            <a href="mailto:{{ person.email }}" title="Email"><i class="fas fa-envelope"></i></a>
+            {% if person.google_scholar %}<a href="{{ person.google_scholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+        </span>
+    </div>
+    <p>{{ person.position }} ({{ person.start_date }})</p>
+    {% if person.research_focus %}<p>{{ person.research_focus | join: ", " }}</p>{% endif %}
 </div>
 {% endif %}
 {% endfor %}
-
 </div>
 
 ---
