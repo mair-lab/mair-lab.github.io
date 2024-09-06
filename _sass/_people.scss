@@ -1,72 +1,129 @@
 // _people.scss
 
+$primary-color: #0056b3;
+$background-color: #f8f9fa;
+$text-color: #333;
+$border-color: #e0e0e0;
+
+// General profile image style
 .profile-image {
-    width: 160px;
-    height: 160px;
     object-fit: cover;
     border-radius: 4px;
-    max-width: 100%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-#phd-students,
-#msc-students {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.5rem;
-    padding: 1rem 0;
-}
-
-.phd-student,
-.msc-student {
+// Faculty section
+.faculty-member {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0.25rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease;
-    height: 100%;
-}
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background-color: $background-color;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 
-.phd-student:hover,
-.msc-student:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    .profile-image {
+        width: 180px;  // Reduced from 250px
+        height: 180px; // Reduced from 250px
+        margin-right: 1.25rem; // Slightly reduced margin
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-.phd-student .profile-image,
-.msc-student .profile-image {
-    margin-bottom: 0.25rem;
-}
+    h3 {
+        color: $primary-color;
+        margin: 0 0 0.25rem;
+        font-size: 1.2em;
+    }
 
-.phd-student p,
-.msc-student p {
-    margin: 0;
-    line-height: 1.2;
-    font-size: 0.85em;
-}
+    p, ul {
+        margin: 0.15rem 0;
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
 
-.phd-student strong,
-.msc-student strong {
-    color: #333;
-    font-size: 0.95em;
-    display: block;
-    margin: 0.15rem 0;
-}
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
 
-@media (max-width: 1200px) {
-    #phd-students,
-    #msc-students {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    a {
+        color: $primary-color;
+        text-decoration: none;
+        margin-right: 0.5rem;
+        font-size: 0.9em;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }
 
+// Students sections
+#phd-students,
+#msc-students,
+#visiting-students {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+
+    .profile-image {
+        width: 75px;
+        height: 75px;
+        margin-bottom: 0.4rem;
+    }
+
+    strong {
+        color: $primary-color;
+        display: block;
+        margin-bottom: 0.1rem;
+        font-size: 0.9em;
+    }
+
+    p {
+        margin: 0.05rem 0;
+        font-size: 0.75em;
+        line-height: 1.2;
+    }
+
+    a {
+        color: $primary-color;
+        text-decoration: none;
+        margin: 0 0.05rem;
+        font-size: 0.75em;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+// Responsive design
 @media (max-width: 768px) {
+    .faculty-member {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .profile-image {
+            margin-right: 0;
+            margin-bottom: 1rem;
+            width: 160px;  // Slightly reduced for mobile
+            height: 160px; // Slightly reduced for mobile
+        }
+    }
+
     #phd-students,
-    #msc-students {
-        grid-template-columns: minmax(0, 1fr);
+    #msc-students,
+    #visiting-students {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #phd-students,
+    #msc-students,
+    #visiting-students {
+        grid-template-columns: 1fr;
     }
 }

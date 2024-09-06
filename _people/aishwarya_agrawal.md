@@ -12,7 +12,7 @@ research_interests:
   - Natural Language Processing
   - Vision-Language Understanding
 email: aishwarya.agrawal@mila.quebec
-google_scholar: https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID
+google_scholar: https://scholar.google.com/citations?user=znH6xJ8AAAAJ&hl=en
 personal_website: https://www.iro.umontreal.ca/~agrawal/
 image: /images/aishwarya_agrawal.jpeg
 ---
