@@ -6,11 +6,6 @@ university: University of Montreal
 affiliations:
   - Core Member and Canada CIFAR AI Chair, Mila -- Quebec Artificial Intelligence Institute
   - Research Scientist, Google DeepMind
-research_interests:
-  - Computer Vision
-  - Deep Learning
-  - Natural Language Processing
-  - Vision-Language Understanding
 email: aishwarya.agrawal@mila.quebec
 google_scholar: https://scholar.google.com/citations?user=znH6xJ8AAAAJ&hl=en
 personal_website: https://www.iro.umontreal.ca/~agrawal/

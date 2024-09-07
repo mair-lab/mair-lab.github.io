@@ -24,7 +24,9 @@ tags: people
     {% for affiliation in person.affiliations %}
     <p class="affiliations">{{ affiliation }}</p>
     {% endfor %}
+    {% if person.research_interests %}
     <p class="research-interests"><strong>Research interests:</strong> {{ person.research_interests | join: ", " }}</p>
+    {% endif %}
     <div class="faculty-links">
       <a href="mailto:{{ person.email }}" title="Email"><i class="fas fa-envelope"></i></a>
       <a href="{{ person.google_scholar }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>

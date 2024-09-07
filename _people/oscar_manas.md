@@ -3,7 +3,7 @@ name: Oscar Mañas
 position: PhD Student
 start_date: Sep 2021
 research_focus: 
-  - Foundation Models
+  - Foundation models
   - Generative AI
 email: oscar.manas@umontreal.ca
 google_scholar: https://scholar.google.com/citations?user=Crn-tf0AAAAJ&hl=en
