@@ -55,3 +55,24 @@
 .site-header .site-nav {
   text-align: center;
 }
+
+
+// New logo CSS
+.site-logo {
+  max-width: 200px;  // Adjust this value as needed
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.site-header .site-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Optional: Adjust layout for smaller screens
+@media screen and (max-width: 600px) {
+  .site-logo {
+    max-width: 150px;  // Smaller logo for mobile devices
+  }
+}
