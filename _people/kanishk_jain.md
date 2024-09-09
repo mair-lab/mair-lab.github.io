@@ -8,5 +8,5 @@ research_focus:
 
 email: kanishk.jain@umontreal.ca
 google_scholar: https://scholar.google.com/citations?user=NCVuTTAAAAAJ&hl=en
-image: /images/kanishk_jain.png
+image: /images/kanishk_jain.jpg
 ---
